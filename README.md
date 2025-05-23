@@ -21,3 +21,7 @@ My Process : I began setting up my react app making sure node was installed. I c
 ### Step 2.
 Objective : Build four dropdowns for home ownership, quarter, term and year that will filter out the data and be reflected onto the table. Each dropdown will have unique values that you will need to generate from the data.
 My process : I added the table of data that will be used for the dropdown, this is a good starting point to visualize what is going to be included in the dropdown. The user is able to filter by homeownership, quarter, term and year using dropdowns. Dynamically builds the dropsdowns from the dataset. Shows only the rows that match the current filters. Includes a reset button = not functuional until next step.
+
+### Step 3.
+Objective : Create a reset button that resets the data and filter.
+My Proccess : I added the reset button functionality so it will clear all searched filters. I also added the loading toggle functionality upon noticing there was styling for it in the app.css

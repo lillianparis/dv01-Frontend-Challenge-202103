@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect  } from 'react'
 import './App.css'
 import GradeTable from './components/Table'
 
@@ -32,6 +32,14 @@ const App = () => {
     year: ''
   });
 
+// Adding the loading animation
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // loading
+    const timeout = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(timeout);
+  }, []);
 
 // handling dropdown changes
   const handleFilterChange = (e) => {
@@ -39,6 +47,15 @@ const App = () => {
     setFilters(prev => ({ ...prev, [name]: value }));
   };
 
+  // Reset button logic
+  const handleReset = () => {
+    setFilters({
+      homeOwnership: '',
+      quarter: '',
+      term: '',
+      year: ''
+    });
+  };
 
 // Filtering based on selections. If the filter has a value, it only includes the rows where the value matches
   const filteredData = data.filter(item => {
@@ -52,14 +69,25 @@ const App = () => {
 
 // Grabbing the dropdown values
   const uniqueValues = (key) => [...new Set(data.map(item => item[key]))];
-
+// Making sure to include the Gradetable with filtered data
   return (
     <div className="App">
         <p>HELLO WORLD</p>
         <p>CHARTS AND GRAPHS</p>
+
+        {isLoading ? (
+      <div className="loading">
+        <div className="loading-circle">
+          <div></div>
+        </div>
+      </div>
+    ) : (
+      <>
         <GradeTable data={filteredData} />
         <div className="dropdown-container">
         </div>
+      </>
+    )}
 {/* Creating the dropdowns, setting up the <select> input, assigning a name and current value, dynalically fills with data from the data set */}
       <div className="dropdown-container" style={{ marginTop: '20px' }}>
         <select id="homeOwnership" name="homeOwnership" value={filters.homeOwnership} onChange={handleFilterChange}>
@@ -89,7 +117,8 @@ const App = () => {
             <option key={option} value={option}>{option}</option>
           ))}
         </select>
-        <button>Reset</button>
+{/* The reset will clear all filters */}
+        <button onClick={handleReset}>Reset</button>
       </div>
     </div>
   );
