@@ -6,10 +6,10 @@ Hello! Welcome to my DV01 Front End Coding Challenge!
 
 - Ensure Node is installed
 - to view the project on local : npm start
+- to run test : npm test
 - npm install
 - npm install --save-dev @testing-library/react@12.1.5 @testing-library/jest-dom@5.16.5
 - npm install --save-dev @testing-library/jest-dom
-
 
 
 ### Important : 
@@ -31,3 +31,14 @@ Hello! Welcome to my DV01 Front End Coding Challenge!
 ### Step 4.
 - Objective : Please develop as if you're shipping to production.
 - My process : In this step,  I finished the testing phase and ensured that everything is appearing correctly. I have also made some edits as well as clean up for producation. 
+
+### Bonus
+- Due to time contraints I was not able to complete the bonus question. My process for completing the bonus question would be Installing recharts first. I would then group all the loans by grade and the sum of the currentBalance values for each grade, this will then be passed to the bar chart. Then I would create the bar chart and integrate this into the App.js file. 
+
+### Future Improvements
+- File structure 
+- Moving data out of the app.js, this would help seperate logic and make it easier to test and replace data
+- Remove inline styling
+- Splitting logic into smaller components
+- Adding unique keys to prevent bugs if multiple dropdowns share the same values like "36 months". ```<option key={`homeOwnership-${option}`} value={option}>```
+

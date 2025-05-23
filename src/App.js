@@ -84,8 +84,6 @@ const App = () => {
     ) : (
       <>
         <GradeTable data={filteredData} />
-        <div className="dropdown-container">
-        </div>
       </>
     )}
 {/* Creating the dropdowns, setting up the <select> input, assigning a name and current value, dynalically fills with data from the data set */}
@@ -117,7 +115,7 @@ const App = () => {
             <option key={option} value={option}>{option}</option>
           ))}
         </select>
-{/* The reset will clear all filters */}
+        {/* The reset will clear all filters */}
         <button onClick={handleReset}>Reset</button>
       </div>
     </div>
