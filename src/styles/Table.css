@@ -1,0 +1,12 @@
+.grade-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+.grade-table th,
+.grade-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
